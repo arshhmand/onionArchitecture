@@ -31,6 +31,7 @@ public class Program
             app.UseSwaggerUI();
         }
 //Test
+//Test 2
         app.UseAuthorization();
 
         app.MapControllers();
