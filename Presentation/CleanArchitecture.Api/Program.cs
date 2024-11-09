@@ -30,7 +30,7 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
+//Test
         app.UseAuthorization();
 
         app.MapControllers();
