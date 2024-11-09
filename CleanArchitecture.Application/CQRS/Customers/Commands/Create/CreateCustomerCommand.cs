@@ -1,8 +1,8 @@
+using CleanArchitecture.Application.Commons.Bases;
+using CleanArchitecture.Domain.Models;
 using MediatR;
-using MyFakeDatabaseProject.Commons.Bases;
-using MyFakeDatabaseProject.Models;
 
-namespace MyFakeDatabaseProject.Application.Customers.Commands;
+namespace CleanArchitecture.Application.CQRS.Customers.Commands.Create;
 
 public class CreateCustomerCommand : IRequest<BaseResponse<bool>>
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MyFakeDatabaseProject.Models;
+﻿namespace CleanArchitecture.Domain.Models;
 
 public class Order
 {

@@ -1,4 +1,4 @@
-namespace MyFakeDatabaseProject.Models;
+namespace CleanArchitecture.Domain.Models;
 
 public class Address
 {

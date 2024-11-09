@@ -1,6 +1,6 @@
-using MyFakeDatabaseProject.Models;
+using CleanArchitecture.Domain.Models;
 
-namespace MyFakeDatabaseProject.Application.Customers.Dtos;
+namespace CleanArchitecture.Application.CQRS.Customers.Dtos;
 
 public class CustomerDto
 {

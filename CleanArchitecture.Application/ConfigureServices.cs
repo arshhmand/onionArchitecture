@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MyFakeDatabaseProject.Application;
+namespace CleanArchitecture.Application;
 
 public static class ConfigureServices
 {

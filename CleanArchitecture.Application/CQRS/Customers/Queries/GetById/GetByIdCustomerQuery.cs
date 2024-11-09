@@ -1,8 +1,8 @@
+using CleanArchitecture.Application.Commons.Bases;
+using CleanArchitecture.Application.CQRS.Customers.Dtos;
 using MediatR;
-using MyFakeDatabaseProject.Application.Customers.Dtos;
-using MyFakeDatabaseProject.Commons.Bases;
 
-namespace MyFakeDatabaseProject.Application.Customers.Queries;
+namespace CleanArchitecture.Application.CQRS.Customers.Queries.GetById;
 
 public class GetByIdCustomerQuery : IRequest<BaseResponse<CustomerDto>>
 {

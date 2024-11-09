@@ -1,11 +1,8 @@
+using CleanArchitecture.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MyFakeDatabaseProject.Models.EntityConfiguration;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
+namespace CleanArchitecture.Infrastructure.EntityConfiguration;
 
 public class CategoryMethodConfiguration : IEntityTypeConfiguration<Category>
 {

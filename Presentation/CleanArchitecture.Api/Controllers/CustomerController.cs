@@ -1,10 +1,9 @@
+using CleanArchitecture.Application.CQRS.Customers.Commands.Create;
+using CleanArchitecture.Application.CQRS.Customers.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
-using MyFakeDatabaseProject.Application.Customers.Commands;
-using MyFakeDatabaseProject.Application.Customers.Queries;
 
-namespace MyFakeDatabaseProject.Controllers;
+namespace CleanArchitecture.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

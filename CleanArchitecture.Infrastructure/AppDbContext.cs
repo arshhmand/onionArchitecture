@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-
-namespace MyFakeDatabaseProject.Models;
+namespace CleanArchitecture.Infrastructure;
 
 public partial class AppDbContext: DbContext
 {

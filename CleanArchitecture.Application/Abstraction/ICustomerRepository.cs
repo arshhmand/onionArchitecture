@@ -1,9 +1,10 @@
-using MyFakeDatabaseProject.Models;
+using CleanArchitecture.Domain.Models;
 
-namespace MyFakeDatabaseProject.Abstraction;
+namespace CleanArchitecture.Application.Abstraction;
 
     public interface ICustomerRepository: IGenericRepository<Customer>
     {
         Task<int> CountAsync();
         Task<IEnumerable<Customer>> GetAllWithPaginationAsync(int pageNumber, int pageSize);
     }
+    

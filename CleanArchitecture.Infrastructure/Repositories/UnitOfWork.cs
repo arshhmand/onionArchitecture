@@ -1,6 +1,6 @@
-using MyFakeDatabaseProject.Abstraction;
+using CleanArchitecture.Application.Abstraction;
 
-namespace MyFakeDatabaseProject.Persistence.Repositories;
+namespace CleanArchitecture.Infrastructure.Repositories;
 
 internal class UnitOfWork : IUnitOfWork
 {

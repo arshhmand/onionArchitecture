@@ -1,4 +1,4 @@
-namespace MyFakeDatabaseProject.Abstraction;
+namespace CleanArchitecture.Application.Abstraction;
 
     public interface IUnitOfWork: IDisposable
     {

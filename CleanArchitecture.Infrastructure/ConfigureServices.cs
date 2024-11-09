@@ -1,11 +1,10 @@
+using CleanArchitecture.Application.Abstraction;
+using CleanArchitecture.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyFakeDatabaseProject.Abstraction;
-using MyFakeDatabaseProject.Models;
-using MyFakeDatabaseProject.Persistence.Repositories;
 
-namespace MyFakeDatabaseProject.Persistence;
+namespace CleanArchitecture.Infrastructure;
 
 public static class ConfigureServices
 {

@@ -1,4 +1,4 @@
-namespace MyFakeDatabaseProject.Commons.Bases;
+namespace CleanArchitecture.Application.Commons.Bases;
 
 public class BaseError
 {

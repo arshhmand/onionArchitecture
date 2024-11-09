@@ -1,7 +1,7 @@
-using MyFakeDatabaseProject.Abstraction;
-using MyFakeDatabaseProject.Models;
+using CleanArchitecture.Application.Abstraction;
+using CleanArchitecture.Domain.Models;
 
-namespace MyFakeDatabaseProject.Persistence.Repositories;
+namespace CleanArchitecture.Infrastructure.Repositories;
 
 public class CustomerRepository : ICustomerRepository
 {

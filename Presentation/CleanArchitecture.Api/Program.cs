@@ -1,5 +1,5 @@
-using MyFakeDatabaseProject.Application;
-using MyFakeDatabaseProject.Persistence;
+using CleanArchitecture.Application;
+using CleanArchitecture.Infrastructure;
 
 namespace CleanArchitecture.Api;
 
@@ -16,11 +16,12 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        var app = builder.Build();
-
         // Add methods Extensions
         builder.Services.AddInjectionPersistence(builder.Configuration);
         builder.Services.AddInjectionApplication();
+
+        var app = builder.Build();
+
         
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())

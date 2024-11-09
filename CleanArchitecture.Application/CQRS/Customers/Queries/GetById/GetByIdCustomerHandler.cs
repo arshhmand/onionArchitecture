@@ -1,11 +1,10 @@
 using AutoMapper;
+using CleanArchitecture.Application.Abstraction;
+using CleanArchitecture.Application.Commons.Bases;
+using CleanArchitecture.Application.CQRS.Customers.Dtos;
 using MediatR;
-using MyFakeDatabaseProject.Abstraction;
-using MyFakeDatabaseProject.Application.Customers.Dtos;
-using MyFakeDatabaseProject.Commons.Bases;
-using MyFakeDatabaseProject.Models;
 
-namespace MyFakeDatabaseProject.Application.Customers.Queries;
+namespace CleanArchitecture.Application.CQRS.Customers.Queries.GetById;
 
 public class GetByIdCustomerHandler : IRequestHandler<GetByIdCustomerQuery, BaseResponse<CustomerDto>>
 {

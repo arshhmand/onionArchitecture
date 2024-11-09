@@ -1,7 +1,8 @@
+using CleanArchitecture.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MyFakeDatabaseProject.Models.EntityConfiguration;
+namespace CleanArchitecture.Infrastructure.EntityConfiguration;
 
 public class AddressMethodConfiguration : IEntityTypeConfiguration<Address>
 {
