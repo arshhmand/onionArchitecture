@@ -1,3 +1,6 @@
+using MyFakeDatabaseProject.Application;
+using MyFakeDatabaseProject.Persistence;
+
 namespace CleanArchitecture.Api;
 
 public class Program
@@ -15,15 +18,19 @@ public class Program
 
         var app = builder.Build();
 
+        // Add methods Extensions
+        builder.Services.AddInjectionPersistence(builder.Configuration);
+        builder.Services.AddInjectionApplication();
+        
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
+            //swagger url http://localhost:8080/swagger/index.html
             app.UseSwagger();
             app.UseSwaggerUI();
         }
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 
