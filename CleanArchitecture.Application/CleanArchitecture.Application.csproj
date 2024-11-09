@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="CQRS\Brands\Commands\" />
+      <Folder Include="CQRS\Brands\Queries\" />
+      <Folder Include="CQRS\Categories\Commands\" />
+      <Folder Include="CQRS\Categories\Queries\" />
+      <Folder Include="CQRS\Orders\Commands\" />
+      <Folder Include="CQRS\Orders\Queries\" />
+      <Folder Include="CQRS\PaymentMethods\Commands\" />
+      <Folder Include="CQRS\PaymentMethods\Queries\" />
+      <Folder Include="CQRS\Products\Commands\" />
+      <Folder Include="CQRS\Products\Queries\" />
+      <Folder Include="CQRS\Reviews\Commands\" />
+      <Folder Include="CQRS\Reviews\Queries\" />
+      <Folder Include="CQRS\Statuses\Commands\" />
+      <Folder Include="CQRS\Statuses\Queries\" />
+      <Folder Include="CQRS\WishLists\Commands\" />
+      <Folder Include="CQRS\WishLists\Queries\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
+      <PackageReference Include="MediatR" Version="12.4.1" />
+    </ItemGroup>
+
+</Project>
