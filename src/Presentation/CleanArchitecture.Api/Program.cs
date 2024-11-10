@@ -22,7 +22,6 @@ public class Program
 
         var app = builder.Build();
 
-        
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
@@ -31,8 +30,6 @@ public class Program
             app.UseSwaggerUI();
         }
         app.UseAuthorization();
-
-        app.MapControllers();
 
         app.Run();
     }

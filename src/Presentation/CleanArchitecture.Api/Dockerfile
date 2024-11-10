@@ -7,10 +7,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Presentation/CleanArchitecture.Api/CleanArchitecture.Api.csproj", "Presentation/CleanArchitecture.Api/"]
-RUN dotnet restore "Presentation/CleanArchitecture.Api/CleanArchitecture.Api.csproj"
+COPY ["src/CleanArchitecture.Api/CleanArchitecture.Api.csproj", "src/CleanArchitecture.Api/"]
+RUN dotnet restore "src/CleanArchitecture.Api/CleanArchitecture.Api.csproj"
 COPY . .
-WORKDIR "/src/Presentation/CleanArchitecture.Api"
+WORKDIR "/src/CleanArchitecture.Api"
 RUN dotnet build "CleanArchitecture.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish

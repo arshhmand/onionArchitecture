@@ -23,7 +23,6 @@
       <Folder Include="CQRS\Statuses\Queries\" />
       <Folder Include="CQRS\WishLists\Commands\" />
       <Folder Include="CQRS\WishLists\Queries\" />
-      <Folder Include="Services\" />
     </ItemGroup>
 
     <ItemGroup>
