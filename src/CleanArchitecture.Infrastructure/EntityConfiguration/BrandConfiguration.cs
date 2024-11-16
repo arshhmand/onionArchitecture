@@ -13,7 +13,6 @@ public class BrandMethodConfiguration : IEntityTypeConfiguration<Brand>
             new Brand { Id = Guid.NewGuid(), Name = "Apple", Description = "Leading brand in consumer electronics and software." },
             new Brand { Id = Guid.NewGuid(), Name = "Samsung", Description = "Pioneering electronics, home appliances, and mobile technology." },
             new Brand { Id = Guid.NewGuid(), Name = "Sony", Description = "Entertainment and electronics innovations." },
-        
             new Brand { Id = Guid.NewGuid(), Name = "Nike", Description = "Global leader in athletic wear and footwear." },
             new Brand { Id = Guid.NewGuid(), Name = "Adidas", Description = "Innovative sports apparel and accessories." },
             new Brand { Id = Guid.NewGuid(), Name = "Levi's", Description = "Iconic denim and casual wear." },
@@ -23,7 +22,7 @@ public class BrandMethodConfiguration : IEntityTypeConfiguration<Brand>
             new Brand { Id = Guid.NewGuid(), Name = "BMW", Description = "Luxury German automotive brand." },
             new Brand { Id = Guid.NewGuid(), Name = "Tesla", Description = "Electric cars and sustainable energy." },
             new Brand { Id = Guid.NewGuid(), Name = "Ford", Description = "Versatile American automotive brand." },
-
+//
             new Brand { Id = Guid.NewGuid(), Name = "Coca-Cola", Description = "World-renowned soft drinks and beverages." },
             new Brand { Id = Guid.NewGuid(), Name = "Pepsi", Description = "Global beverage and snack brand." },
             new Brand { Id = Guid.NewGuid(), Name = "Nestlé", Description = "Trusted food and beverage conglomerate." },
