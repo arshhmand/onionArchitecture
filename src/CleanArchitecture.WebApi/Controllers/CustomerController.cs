@@ -41,5 +41,4 @@ public class CustomerController : ControllerBase
 
         return BadRequest(response);
     }
-    
 }

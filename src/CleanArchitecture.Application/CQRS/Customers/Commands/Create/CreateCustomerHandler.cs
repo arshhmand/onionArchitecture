@@ -1,6 +1,7 @@
 using AutoMapper;
 using CleanArchitecture.Application.Abstraction;
 using CleanArchitecture.Application.Commons.Bases;
+using CleanArchitecture.Application.CQRS.Customers.Dtos;
 using CleanArchitecture.Domain.Models;
 using MediatR;
 
@@ -8,33 +9,54 @@ namespace CleanArchitecture.Application.CQRS.Customers.Commands.Create;
 
 public class CreateCustomerHandler : IRequestHandler<CreateCustomerCommand, BaseResponse<bool>>
 {
-    private readonly IUnitOfWork _unitOfWork;
-    private IMapper _mapper;
+    private readonly ICustomerRepository _customerRepository;
 
-    public CreateCustomerHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public CreateCustomerHandler(ICustomerRepository customerRepository)
     {
-        _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        _customerRepository = customerRepository;
     }
-    public async Task<BaseResponse<bool>> Handle(CreateCustomerCommand command, CancellationToken cancellationToken)
+
+    public async Task<BaseResponse<bool>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
-        var response = new BaseResponse<bool>();
         try
         {
-            var customer = _mapper.Map<Customer>(command);
-            response.Data = await _unitOfWork.Customers.InsertAsync(customer);
-
-            if (response.Data)
+            var customer = new Customer
             {
-                response.Success = true;
-                response.Message = "Customer created successfully";
-            }
+                Id = request.Id,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                PhoneNumber = request.PhoneNumber,
+                Address = request.Address,
+                PreferredPaymentMethod = request.PreferredPaymentMethod,
+                DateOfBirth = request.DateOfBirth
+            };
+
+            await _customerRepository.InsertAsync(customer);
+
+            return new BaseResponse<bool>
+            {
+                Success = true,
+                Data = true,
+                Message = "Customer created successfully."
+            };
         }
         catch (Exception ex)
         {
-            response.Message = ex.Message;
+            return new BaseResponse<bool>
+            {
+                Success = false,
+                Data = false,
+                Message = "An error occurred while creating the customer.",
+                Errors = new List<BaseError>
+                {
+                    new BaseError
+                    {
+                        PropertyMessage = "CustomerCreation",
+                        ErrorMessage = ex.Message
+                    }
+                }
+            };
         }
-
-        return response;
     }
 }

@@ -9,6 +9,5 @@ public static class ConfigureServices
     {
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
     }
 }

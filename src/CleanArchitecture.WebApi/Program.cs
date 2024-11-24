@@ -1,6 +1,7 @@
 using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.WebApi.Configurations;
+using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.WebApi;
 
@@ -20,7 +21,7 @@ public class Program
         
         builder.Services.AddInjectionPersistence(builder.Configuration);
         builder.Services.AddInjectionApplication();
-
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

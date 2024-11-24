@@ -1,3 +1,5 @@
+using DotNetEnv;
+
 namespace CleanArchitecture.WebApi.Configurations;
 
 public static class ApiConfig
@@ -6,12 +8,13 @@ public static class ApiConfig
     {
         if (builder == null) throw new ArgumentNullException(nameof(builder));
 
-        builder.Configuration
-            .SetBasePath(builder.Environment.ContentRootPath)
-            .AddJsonFile("appsettings.json", true, true)
-            .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
-            .AddEnvironmentVariables();
+        // Load environment variables from .env file
+        Env.Load();
 
+        // Add environment variables to the configuration
+        builder.Configuration.AddEnvironmentVariables();
+
+        // Register services like controllers
         builder.Services.AddControllers();
 
         return builder;

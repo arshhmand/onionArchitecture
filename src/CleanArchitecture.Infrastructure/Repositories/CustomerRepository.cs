@@ -5,10 +5,17 @@ namespace CleanArchitecture.Infrastructure.Repositories;
 
 public class CustomerRepository : ICustomerRepository
 {
-
-    public Task<bool> InsertAsync(Customer entity)
+    private readonly AppDbContext _context;
+    
+    public CustomerRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+
+    public async Task InsertAsync(Customer customer)
+    {
+        await _context.Customers.AddAsync(customer);
+        await _context.SaveChangesAsync();
     }
 
     public Task<bool> UpdateAsync(Customer entity)

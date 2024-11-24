@@ -1,23 +1,26 @@
+using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Configuration;
 
 namespace CleanArchitecture.Infrastructure.DesignTimeFactory;
 
-public class AppDbContextFactory :IDesignTimeDbContextFactory<AppDbContext>
+public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
     public AppDbContext CreateDbContext(string[] args)
     {
-        var configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json")
-            .Build();
+    //TODO Add connection string to the env file
+        const string connectionString =
+            "Server=host.docker.internal,1433;Database=PrimeDB;User=sa;Password=yourStrong(!)Password;TrustServerCertificate=True;";
 
-        // Configure the DbContextOptions with the connection string
+        if (string.IsNullOrEmpty(connectionString))
+        {
+            throw new InvalidOperationException("Connection string is not set in the environment variables.");
+        }
+
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
         optionsBuilder.UseSqlServer(connectionString);
-
+        
         return new AppDbContext(optionsBuilder.Options);
+        
     }
 }

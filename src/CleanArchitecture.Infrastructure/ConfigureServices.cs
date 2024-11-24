@@ -10,13 +10,14 @@ public static class ConfigureServices
 {
     public static IServiceCollection AddInjectionPersistence(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
-        services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(connectionString));
+        
+        const string connectionString =
+            "Server=host.docker.internal,1433;Database=PrimeDB;User=sa;Password=yourStrong(!)Password;TrustServerCertificate=True;";
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
-     
-        return services;
+        services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(connectionString));
+      return services;
     }
 }
