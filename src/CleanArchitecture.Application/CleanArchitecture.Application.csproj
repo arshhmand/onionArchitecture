@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <Folder Include="CQRS\Brands\Commands\" />
-      <Folder Include="CQRS\Brands\Queries\" />
       <Folder Include="CQRS\Categories\Commands\" />
       <Folder Include="CQRS\Categories\Queries\" />
       <Folder Include="CQRS\Orders\Commands\" />

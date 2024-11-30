@@ -9,17 +9,17 @@ namespace CleanArchitecture.Api.Controllers;
 [ApiController]
 public class CustomerController : ControllerBase
 {
-    private readonly IMediator _mediator;
-
+    private readonly IMediator mediator;
+    
     public CustomerController(IMediator mediator)
     {
-        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
     }
-
+    
     [HttpGet("GetById")]
     public async Task<IActionResult> GetByIdAsync([FromQuery] Guid id)
     {
-        var response = await _mediator.Send(new GetByIdCustomerQuery() { Id = id });
+        var response = await mediator.Send(new GetByIdCustomerQuery() { Id = id });
         if (response.Success)
         {
             return Ok(response);
@@ -32,7 +32,7 @@ public class CustomerController : ControllerBase
     public async Task<ActionResult> CreateAsync([FromBody] CreateCustomerCommand command)
     {
 
-        var response = await _mediator.Send(command);
+        var response = await mediator.Send(command);
 
         if (response.Success)
         {
