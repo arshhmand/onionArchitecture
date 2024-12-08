@@ -21,7 +21,7 @@ public class GetByIdCustomerHandler : IRequestHandler<GetByIdCustomerQuery, Base
         var response = new BaseResponse<CustomerDto>();
         try
         {
-            var customer = await _unitOfWork.Customers.GetAsync(request.Id);
+            var customer = await _unitOfWork.Customer.GetAsync(request.Id);
 
             if (customer is not null)
             {

@@ -38,7 +38,6 @@ public class CustomerController : ControllerBase
         {
             return Ok(response);
         }
-
         return BadRequest(response);
     }
 }

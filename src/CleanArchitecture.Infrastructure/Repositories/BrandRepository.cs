@@ -1,5 +1,6 @@
 using CleanArchitecture.Application.Abstraction;
 using CleanArchitecture.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Infrastructure.Repositories;
 
@@ -28,7 +29,8 @@ public class BrandRepository : IBrandRepository
 
     public Task<Brand> GetAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var brands =  _context.Brand;
+        return  brands.Where(b => b.Id == id).FirstOrDefaultAsync();
     }
 
     public Task<IEnumerable<Brand>> GetAllAsync()

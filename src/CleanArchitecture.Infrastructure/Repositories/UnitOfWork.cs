@@ -2,15 +2,15 @@ using CleanArchitecture.Application.Abstraction;
 
 namespace CleanArchitecture.Infrastructure.Repositories;
 
-internal class UnitOfWork : IUnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
-    public ICustomerRepository Customers { get; }
-    public IBrandRepository Brands { get; }
+    public ICustomerRepository Customer { get; }
+    public IBrandRepository Brand { get; }
 
     public UnitOfWork(ICustomerRepository customers, IBrandRepository brands)
     {
-        Customers = customers ?? throw new ArgumentNullException(nameof(customers));
-        Brands = brands ?? throw new ArgumentNullException(nameof(brands));
+        Customer = customers ?? throw new ArgumentNullException(nameof(customers));
+        Brand = brands ?? throw new ArgumentNullException(nameof(brands));
     }
     
     public void Dispose()

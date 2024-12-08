@@ -9,14 +9,20 @@ namespace CleanArchitecture.Application.CQRS.Brands.Queries.GetById;
 public class GetBrandByIdHandler : IRequestHandler<GetBrandByIdQuery, BaseResponse<BrandDto>>
 {
     private readonly IUnitOfWork _unitOfWork;
-    private IMapper _mapper;
+    private IMapper  _mapper;
+
+    public GetBrandByIdHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    {
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
     
     public async Task<BaseResponse<BrandDto>> Handle(GetBrandByIdQuery request, CancellationToken cancellationToken)
     {
         var response = new BaseResponse<BrandDto>();
         try
         {
-            var brand = await _unitOfWork.Brands.GetAsync(request.Id);
+            var brand = await _unitOfWork.Brand.GetAsync(request.Id);
 
             if (brand is not null)
             {
