@@ -15,5 +15,4 @@ public class CreateCustomerCommand : IRequest<BaseResponse<bool>>
     public DateTime CreatedAt { get; set; }
     public PaymentMethod PreferredPaymentMethod { get; set; }
     public DateTime DateOfBirth { get; set; }
-    public ICollection<Order> Orders { get; set; }
 }

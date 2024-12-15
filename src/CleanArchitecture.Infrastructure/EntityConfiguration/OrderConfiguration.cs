@@ -8,7 +8,6 @@ namespace CleanArchitecture.Infrastructure.EntityConfiguration;
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-           
         }
     }
     
